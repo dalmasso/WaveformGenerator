@@ -4,6 +4,11 @@ This module implements a simple ROM-based Waveform Generator Module handling Sin
 - ROM Address Bits length
 - ROM Data Bits length
 
+The waveform output frequency is defined by:  
+
+  
+$waveform_{Freq} = \frac{InputClock_{Freq}}{2^{ROMAddressBits}}$
+
 <img width="439" alt="waveformgenerator" src="https://github.com/user-attachments/assets/a23d1a29-ecde-42a1-9042-df711a26a5e0" />
 
 ## Usage
