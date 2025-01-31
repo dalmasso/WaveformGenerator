@@ -11,8 +11,8 @@
 -- Ports
 --		Input 	-	i_clock: System Input Clock
 --		Input 	-	i_waveform_select: Waveform Generator Type Selector ("00": Sine, "01": Triangle, "10": Sawtooth, "11": Square)
---		Input 	-	i_waveform_step: Waveform Step Value
---		Output 	-	o_waveform: Waveform Signal Ouput Value
+--		Input 	-	i_waveform_step: Waveform Step Value (Value Range: [0;2^rom_addr_bits -1])
+--		Output 	-	o_waveform: Waveform Signal Ouput Value (Value Range: [0;2^rom_data_bits -1])
 ------------------------------------------------------------------------
 
 LIBRARY IEEE;
