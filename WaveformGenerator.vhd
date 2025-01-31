@@ -4,13 +4,13 @@
 -- Module Name: WaveformGenerator
 -- Description:
 --      Simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to selector signal.
---      The Waveform Output Frequency is defined by (i_clock_freq / 2^rom_addr_bits).
+--      The Waveform Output Frequency is defined by (i_sys_clock_freq / 2^rom_addr_bits).
 --
 -- Generics
 --		rom_addr_bits: ROM Address Bits length
 --		rom_data_bits: ROM Data Bits length
 -- Ports
---		Input 	-	i_clock: System Input Clock
+--		Input 	-	i_sys_clock: System Input Clock
 --		Input 	-	i_waveform_select: Waveform Generator Type Selector ("00": Sine, "01": Triangle, "10": Sawtooth, "11": Square)
 --		Input 	-	i_waveform_step: Waveform Step Value (Value Range: [0;2^rom_addr_bits -1])
 --		Output 	-	o_waveform: Waveform Signal Ouput Value (Value Range: [0;2^rom_data_bits -1])
@@ -29,7 +29,7 @@ GENERIC(
 );
 
 PORT(
-	i_clock: IN STD_LOGIC;
+	i_sys_clock: IN STD_LOGIC;
     i_waveform_select: IN STD_LOGIC_VECTOR(1 downto 0);
     i_waveform_step: IN UNSIGNED(rom_addr_bits-1 downto 0);
 	o_waveform: OUT UNSIGNED(rom_data_bits-1 downto 0)
@@ -136,9 +136,9 @@ begin
 	-------------------------------------
 	-- Waveform Selector Input Handler --
 	-------------------------------------
-	process(i_clock)
+	process(i_sys_clock)
 	begin
-		if rising_edge(i_clock) then
+		if rising_edge(i_sys_clock) then
 
 			-- End of ROM Memory
 			if (i_waveform_step = ROM_ADDR_MAX) then
@@ -150,9 +150,9 @@ begin
     -----------------------
 	-- Waveform Selector --
 	-----------------------
-	process(i_clock)
+	process(i_sys_clock)
 	begin
-		if rising_edge(i_clock) then
+		if rising_edge(i_sys_clock) then
 
             -- Waveform 0: Sine
             if (waveform_select_reg = SINE_WAVEFORM) then
