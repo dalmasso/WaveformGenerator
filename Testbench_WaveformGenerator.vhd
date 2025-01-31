@@ -4,6 +4,7 @@
 -- Module Name: WaveformGenerator
 -- Description:
 --      Simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to selector signal.
+--      The Waveform Output Frequency is defined by (i_clock_freq / 2^rom_addr_bits).
 --
 -- Generics
 --		rom_addr_bits: ROM Address Bits length
