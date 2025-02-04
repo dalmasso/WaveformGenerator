@@ -28,7 +28,7 @@ Simply set the ROM parameters (i.e., ROM Address & Data bit length).
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| i_clock | Input | System Input Clock |
+| i_sys_clock | Input | System Input Clock |
 | i_waveform_select | Input | Waveform Generator Type Selector ("00": Sine, "01": Triangle, "10": Sawtooth, "11": Square)|
 | i_waveform_step | Input | Waveform Step Value (Value Range: [0;2<sup>rom_addr_bits</sup>-1]) |
 | o_waveform | Output | Waveform Signal Ouput Value (Value Range: [0;2<sup>rom_data_bits</sup>-1]) |
