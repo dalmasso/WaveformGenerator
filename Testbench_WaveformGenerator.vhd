@@ -23,7 +23,7 @@ USE IEEE.NUMERIC_STD.ALL;
 entity Testbench_WaveformGenerator is
 end Testbench_WaveformGenerator;
 
-architecture Behavioral of Testbench_WaveformGenerator is
+ARCHITECTURE Behavioral of Testbench_WaveformGenerator is
 
 COMPONENT WaveformGenerator is
 
