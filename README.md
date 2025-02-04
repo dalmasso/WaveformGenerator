@@ -1,6 +1,6 @@
 # Waveform Generator
 
-This module implements a simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to selector signal. User can set the following parameters:
+This module implements a simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to the selection signal. Note that the selection signal can be updated at any time, the waveform output will immediatly switch to the selected waveform type. User can set the following parameters:
 - ROM Address Bits length
 - ROM Data Bits length
 
