@@ -3,7 +3,8 @@
 -- Create Date: 30/01/2025
 -- Module Name: WaveformGenerator
 -- Description:
---      Simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to selector signal.
+--      Simple ROM-based Waveform Generator Module handling Sine, Triangle, Sawtooth and Square waveform according to the selection signal.
+--      Note that the selection signal can be updated at any time, the waveform output will immediatly switch to the selected waveform type.
 --      The Waveform Output Frequency is defined by (i_sys_clock_freq / 2^rom_addr_bits).
 --
 -- Generics
@@ -140,10 +141,8 @@ begin
 	begin
 		if rising_edge(i_sys_clock) then
 
-			-- End of ROM Memory
-			if (i_waveform_step = ROM_ADDR_MAX) then
-				waveform_select_reg <= i_waveform_select;
-			end if;
+			-- Apply New Selected Waveform Type
+			waveform_select_reg <= i_waveform_select;
 		end if;
 	end process;
 
